@@ -167,7 +167,8 @@ class QuaternionMessage(ReceiveMessage):
         self.q = q
 
     def __str__(self):
-        return "quaternion message - q:%s %s %s %s" % self.q
+        # return "quaternion message - q:%s %s %s %s" % self.q
+        return "quaternion message - q:%s" % (self.q)
 
     @classmethod
     def parse(cls, body):
@@ -215,7 +216,7 @@ class InstallationDirection(Enum):
     vertical = 0x01
     "Device installed vertically."
 
-
+#https://drive.google.com/file/d/1YbTTGyutkJSeyYGsHK9ENOlcqxMWdtJm/view halaman 19
 class ReturnRateSelect(Enum):
     rate_0_2hz = 0x01
     rate_0_5hz = 0x02
@@ -226,10 +227,10 @@ class ReturnRateSelect(Enum):
     rate_20hz = 0x07
     rate_50hz = 0x08
     rate_100hz = 0x09
-    rate_125hz = 0x0A
-    rate_200hz = 0x0B
-    rate_single = 0x0C
-    rate_not_output = 0x0D
+    rate_125hz = 0x0a
+    rate_200hz = 0x0b
+    rate_single = 0x0c
+    rate_not_output = 0x0d
 
 
 class BaudRateSelect(Enum):
@@ -243,7 +244,7 @@ class BaudRateSelect(Enum):
     baud_460800 = 0x08
     baud_921600 = 0x09
 
-
+#https://drive.google.com/file/d/1YbTTGyutkJSeyYGsHK9ENOlcqxMWdtJm/view halaman 15
 class Register(Enum):
     save = 0x00
     calsw = 0x01
@@ -255,10 +256,10 @@ class Register(Enum):
     azoffset = 0x07
     gxoffset = 0x08
     gyoffset = 0x09
-    gzoffset = 0x0A
-    hxoffset = 0x0B
-    hyoffset = 0x0C
-    hzoffset = 0x0D
+    gzoffset = 0x0a
+    hxoffset = 0x0b
+    hyoffset = 0x0c
+    hzoffset = 0x0d
     sleep = 0x22
     direction = 0x23
     alg = 0x24
@@ -272,12 +273,12 @@ class Register(Enum):
     gx = 0x37
     gy = 0x38
     gz = 0x39
-    hx = 0x3A
-    hy = 0x3B
-    hz = 0x3C
-    roll = 0x3D
-    pitch = 0x3E
-    yaw = 0x3F
+    hx = 0x3a
+    hy = 0x3b
+    hz = 0x3c
+    roll = 0x3d
+    pitch = 0x3e
+    yaw = 0x3f
     temp = 0x40
     q0 = 0x51
     q1 = 0x52
