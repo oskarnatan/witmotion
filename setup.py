@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="witmotion",
-    version="0.0.1.dev",
+    version="0.0.1.rev_oskar",
     description="API for Witmotion IMUs, including HWT905",
     long_description="",
     classifiers=[
