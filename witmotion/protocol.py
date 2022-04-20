@@ -163,19 +163,31 @@ class MagneticMessage(ReceiveMessage):
 class QuaternionMessage(ReceiveMessage):
     code = 0x59
 
-    def __init__(self, q):
-        self.q = q
+    # def __init__(self, q):
+    def __init__(self, q0, q1, q2, q3):
+        # self.q = q
+        self.q0 = q0
+        self.q1 = q1
+        self.q2 = q2
+        self.q3 = q3
 
     def __str__(self):
         # return "quaternion message - q:%s %s %s %s" % self.q
-        return "quaternion message - q:%s" % (self.q)
+        return ("quaternion message - q:%s %s %s %s" % (
+            self.q0,
+            self.q1,
+            self.q2,
+            self.q3,
+            )
+        )
 
     @classmethod
     def parse(cls, body):
-        qr = struct.unpack("<hhhh", body)
-        q = tuple(el / 32768 for el in qr)
-        return cls(q=q)
-
+        # qr = struct.unpack("<hhhh", body)
+        # q = tuple(el / 32768 for el in qr)
+        # return cls(q=q)
+        (q0, q1, q2, q3) = struct.unpack("<hhhh", body)
+        return cls(q=[q0, q1, q2, q3])
 
 receive_messages = {
     cls.code: cls
